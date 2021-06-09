@@ -1,32 +1,28 @@
 #include <stdio.h>
-
-
+#include <string.h>
 int main(){
+  char myS[1000000];
+  char uni[200000];
+  scanf("%s", myS);
 
-  char vowels[] = {'a', 'e', 'i', 'o','u'};
-  char word[10000];
-  scanf("%s", word);
-  int i = 0, j = 0;
-
-  int hasVowel = 0;
-  
-
-  while(word[i]){
-    j = 0;
-    while(vowels[j]){
-      if(word[i] == vowels[j]){
-        hasVowel = 1;
+  int i = 0, count = 0;
+  int foundAPair = 0;
+  while(myS[i]){
+    for(int j = i + 1; j < strlen(myS);j++){
+      if(myS[i] == myS[j]){
+        foundAPair = 1;
         break;
       }
-      j++;
     }
+    if(foundAPair == 0){
+      pri
+      count++;
+    }
+    foundAPair = 0;
     i++;
   }
 
-  if(hasVowel){
-    printf("The word contains a vowel");
-  } else{
-    printf("The word doesn't contain a vowel");
-  }
+  printf("%i", count);
+
   return 0;
 }

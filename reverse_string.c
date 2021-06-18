@@ -2,16 +2,8 @@
 #include <string.h>
 
 int main(){
-  char myS[20000];
-  printf("Enter a string: ");
-  scanf("%s", myS);
-  int len = strlen(myS);
+  signed short a = 32768;
+  printf("%d", sizeof(23.2f));
 
-  for(int i = 0 ; i < len / 2; i++){
-    char temp = myS[i];
-    myS[i] = myS[len - i - 1]; 
-    myS[len - i - 1] = temp;
-  }
-  printf("%s", myS);
   return 0;
 }

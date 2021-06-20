@@ -1,20 +1,21 @@
 #include <stdio.h>
-
-int main(void) {
-  int n, total = 0, cur_sum = 0;
-  scanf("%i", &n);
-  int arr[n];
-  for(int i = 0;i<n;i++){
-	  scanf("%i", &arr[i]);
-	  total += arr[i];
-  }
-  for(int i = 0; i < n; i++){
-	if(cur_sum == (total - arr[i] - cur_sum)){
-		printf("%i", i);
-		return 0;
+void columnMajor(int *arr,int N,int M){
+	for(int i = 0; i < M;i++){
+		for(int j = 0; j < N; j++){
+			printf(j == N - 1 ? "%d" : "%d ", *((arr+j*M) + i));
+		}
+		printf("\n");
 	}
-	cur_sum += arr[i];
-  }
-  printf("%i", -1);
+}
+int main(void) {
+  int N,M;
+  scanf("%d%d",&N,&M);
+  int arr[N][M];
+  	for(int i = 0; i < N; i++){
+		for(int j = 0; j < M; j++){
+			scanf("%d", &arr[i][j]);
+		}
+	}
+	columnMajor(&arr[0][0], N, M);
   return 0;
 }
